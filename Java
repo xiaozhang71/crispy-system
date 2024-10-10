@@ -1,1 +1,32 @@
 
+import java.util.Random;
+import java.util.Scanner;
+
+public class GuessTheNumberGame {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+        int numberToGuess = random.nextInt(100) + 1; 
+        int guess = 0;
+        boolean hasGuessed = false;
+
+        System.out.println("1-100");
+
+        while (!hasGuessed) {
+            System.out.print("user：");
+            guess = scanner.nextInt();
+
+            if (guess < numberToGuess) {
+                System.out.println("low");
+            } else if (guess > numberToGuess) {
+                System.out.println("high");
+            } else {
+                hasGuessed = true;
+                System.out.println("true：" + numberToGuess);
+            }
+        }
+
+        scanner.close();
+    }
+}
